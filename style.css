@@ -362,12 +362,13 @@ section{
   position:fixed;inset:0;
   z-index:9990;
   background:#0d0d11;
-  transform:translateX(100%);
+  visibility:hidden;
   will-change:transform;
   overflow:hidden;
   pointer-events:none;
   --overlay-accent:#e0a530;
 }
+.overlay.is-open{visibility:visible;}
 .overlay.is-open{pointer-events:all;}
 
 .overlay-accent-line{

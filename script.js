@@ -330,6 +330,8 @@ const projectData = {
 
 /* -- DOM refs -- */
 const overlay        = document.getElementById('overlay');
+/* position overlay off-screen on load (no CSS transform conflict) */
+gsap.set(overlay, { xPercent: 100 });
 const overlayAccLine = document.getElementById('overlayAccentLine');
 const overlayClose   = document.getElementById('overlayClose');
 const overlayPrev    = document.getElementById('overlayPrev');
