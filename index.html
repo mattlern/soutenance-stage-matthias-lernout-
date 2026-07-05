@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage — Matthias Lernout</title>
+<meta name="description" content="Soutenance de stage — Freelance en création numérique, Lyon, 2026">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- grain overlay -->
+<svg class="noise" xmlns="http://www.w3.org/2000/svg">
+  <filter id="noiseFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch"></feTurbulence>
+    <feColorMatrix type="saturate" values="0"></feColorMatrix>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#noiseFilter)"></rect>
+</svg>
+
+<!-- custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- loader -->
+<div class="loader" id="loader">
+  <div class="loader-counter" id="loaderCounter">0</div>
+  <div class="loader-label">chargement du stage</div>
+</div>
+
+<!-- progress rail -->
+<div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" data-bg="#0a0a0a">
+    <div class="hero-bgtext">STAGE</div>
+    <div class="hero-content">
+      <p class="eyebrow reveal-up">Soutenance de stage — Bachelor Création Numérique</p>
+      <h1 class="hero-title">
+        <span class="line"><span class="chars">NEUF</span></span>
+        <span class="line"><span class="chars">SEMAINES.</span></span>
+        <span class="line"><span class="chars accent">AUCUN</span></span>
+        <span class="line"><span class="chars accent">FILET.</span></span>
+      </h1>
+      <div class="hero-footer reveal-up">
+        <div class="hero-name">Matthias Lernout</div>
+        <div class="hero-dates">1er mai — 2 juillet 2026 · Lyon</div>
+      </div>
+    </div>
+    <div class="hero-ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>9 semaines</span><span class="tsep">·</span>
+        <span>5 projets</span><span class="tsep">·</span>
+        <span>4 clients signés</span><span class="tsep">·</span>
+        <span>500 000 vues</span><span class="tsep">·</span>
+        <span>1 règle apprise</span><span class="tsep">·</span>
+        <span>zéro filet</span><span class="tsep">·</span>
+        <span>9 semaines</span><span class="tsep">·</span>
+        <span>5 projets</span><span class="tsep">·</span>
+        <span>4 clients signés</span><span class="tsep">·</span>
+        <span>500 000 vues</span><span class="tsep">·</span>
+        <span>1 règle apprise</span><span class="tsep">·</span>
+        <span>zéro filet</span><span class="tsep">·</span>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      <span>scroll</span>
+      <div class="scroll-line"><div class="scroll-dot"></div></div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto" data-bg="#0a0a0a">
+    <p class="manifesto-text">
+      Faire son stage de fin d'études <em>dans sa propre entreprise</em>,
+      c'est se mettre à l'épreuve sans excuse possible.
+      Pas de tuteur dans le bureau d'à côté. Pas d'équipe vers qui se tourner.
+      Juste moi, cinq clients, et <span class="accent">cinq missions</span> qui allaient tout m'apprendre.
+    </p>
+  </section>
+
+  <!-- CHAPTERS INTRO -->
+  <section class="chapters-intro" data-bg="#0a0a0a">
+    <h2 class="chapters-intro-title">CE QUE J'AI<br><span class="outline">VÉCU.</span></h2>
+    <p class="chapters-intro-sub">5 projets. 5 réalités différentes du métier de freelance.</p>
+  </section>
+
+  <!-- CHAPTER 01 — RANC & GENEVOIS -->
+  <section class="chapter" id="ch01" data-bg="#111318" data-accent="#8fa6bd">
+    <div class="chapter-num-wrap">
+      <span class="chapter-num">01</span>
+    </div>
+    <div class="chapter-grid">
+      <div class="chapter-media">
+        <div class="media-placeholder" data-placeholder="Site Ranc &amp; Genevois — capture à venir">
+          <span class="ph-label">RANC &amp; GENEVOIS</span>
+          <span class="ph-sub">[ visuel à venir ]</span>
+        </div>
+      </div>
+      <div class="chapter-text">
+        <p class="chapter-kicker">BTP · site vitrine</p>
+        <h3 class="chapter-title">La première<br>livraison</h3>
+        <p class="chapter-body">
+          Une entreprise du bâtiment, sans la moindre présence en ligne, dans un secteur
+          où l'image de marque n'a jamais été une priorité. Il a fallu construire une
+          identité visuelle à partir de presque rien — logo absent, aucune photo exploitable,
+          un client qui n'avait presque pas de temps à me consacrer.
+        </p>
+        <p class="chapter-body">
+          Trois cycles d'allers-retours. Six pages. Un nom de domaine choisi ensemble.
+          Et une mise en ligne qui a validé, pour la première fois, que mon modèle
+          — devis, contrat, acompte, itérations, livraison — tenait la route en conditions réelles.
+        </p>
+        <div class="chapter-stats">
+          <div class="stat"><span class="stat-num" data-count="6">0</span><span class="stat-label">pages livrées</span></div>
+          <div class="stat"><span class="stat-num" data-count="3">0</span><span class="stat-label">itérations client</span></div>
+        </div>
+        <p class="chapter-punch">Premier site. Premier contrat. Première preuve.</p>
+        <button class="explore-btn" data-project="ch01">Explorer le projet <span>→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 02 — MAISON ROUFFIANGE -->
+  <section class="chapter" id="ch02" data-bg="#1c1210" data-accent="#c85c3a">
+    <div class="chapter-num-wrap">
+      <span class="chapter-num">02</span>
+    </div>
+    <div class="chapter-grid reverse">
+      <div class="chapter-text">
+        <p class="chapter-kicker">Boucherie artisanale · démarchage direct</p>
+        <h3 class="chapter-title">Convaincre<br>sans vendre</h3>
+        <p class="chapter-body">
+          « Je n'ai pas besoin de site internet. » La première phrase du client,
+          en face à face, dans sa boutique. Je m'y étais présenté avec un modèle déjà
+          construit — sans commande, sans brief — rien qu'à partir de ce qui était
+          public sur son activité.
+        </p>
+        <p class="chapter-body">
+          Le refus s'est transformé en curiosité, puis en achat. Les affiches
+          pédagogiques de boucherie, animées et intégrées au design, ont fait le reste :
+          un pari créatif entre tradition et numérique qui a immédiatement séduit.
+        </p>
+        <div class="chapter-stats">
+          <div class="stat"><span class="stat-num" data-count="8">0</span><span class="stat-label">pages</span></div>
+          <div class="stat"><span class="stat-num" data-count="2">0</span><span class="stat-label">rendez-vous terrain</span></div>
+        </div>
+        <p class="chapter-punch">Le meilleur argument commercial, c'est un produit déjà fini.</p>
+        <button class="explore-btn" data-project="ch02">Explorer le projet <span>→</span></button>
+      </div>
+      <div class="chapter-media">
+        <div class="media-placeholder" data-placeholder="Site Maison Rouffiange — capture à venir">
+          <span class="ph-label">MAISON ROUFFIANGE</span>
+          <span class="ph-sub">[ visuel à venir — livraison 5/6 juillet ]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 03 — FIFTEEN PARTNERS (dramatic) -->
+  <section class="chapter chapter-dark" id="ch03" data-bg="#050506" data-accent="#8a2b2b">
+    <div class="chapter-num-wrap">
+      <span class="chapter-num glitch" data-text="03">03</span>
+    </div>
+    <div class="chapter-grid single">
+      <div class="chapter-text center">
+        <p class="chapter-kicker">Gestion de patrimoine · projet avorté</p>
+        <h3 class="chapter-title huge">LE<br>SILENCE.</h3>
+        <p class="chapter-body">
+          Un devis à plus de 4 000 €. Une promesse verbale : « on travaillera ensemble
+          dans tous les cas ». J'ai commencé à coder avant même la signature.
+        </p>
+        <p class="chapter-body">
+          Puis plus rien. Des appels sans réponse. Des messages qui promettent un rappel
+          qui ne vient jamais. Semaines de silence. Et puis, un mail — une dernière ligne
+          qui change tout : un stagiaire venait de faire le site avec une IA générative.
+        </p>
+        <p class="chapter-punch big">
+          Pas de contrat signé. Pas d'acompte versé. Pas de garantie.<br>
+          <span class="accent">La leçon la plus dure. La plus utile.</span>
+        </p>
+        <button class="explore-btn" data-project="ch03">Explorer le projet <span>→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 04 — SACRÉ-ALPHONSE -->
+  <section class="chapter" id="ch04" data-bg="#1a1509" data-accent="#e0a530">
+    <div class="chapter-num-wrap">
+      <span class="chapter-num">04</span>
+    </div>
+    <div class="chapter-grid">
+      <div class="chapter-media">
+        <div class="media-placeholder" data-placeholder="Reels Sacré-Alphonse — extrait à venir">
+          <span class="ph-label">SACRÉ-ALPHONSE</span>
+          <span class="ph-sub">[ extrait Reels à venir ]</span>
+        </div>
+      </div>
+      <div class="chapter-text">
+        <p class="chapter-kicker">Restaurant · community management</p>
+        <h3 class="chapter-title">500 000<br>vues</h3>
+        <p class="chapter-body">
+          Quatorze contenus produits en trois mois. Sept Reels, sept photos. Un ton
+          chaleureux, décalé, jamais forcé. Une croissance organique, sans un centime
+          de publicité.
+        </p>
+        <p class="chapter-body">
+          Et puis un Reels qui explose bien au-delà du cercle des abonnés habituels —
+          la publication la plus performante depuis le début de la mission.
+        </p>
+        <div class="chapter-stats">
+          <div class="stat"><span class="stat-num" data-count="200">0</span><span class="stat-label">nouveaux abonnés</span></div>
+          <div class="stat"><span class="stat-num" data-count="500000">0</span><span class="stat-label">vues sur un seul Reels</span></div>
+        </div>
+        <p class="chapter-punch">La régularité bat la théorie.</p>
+        <button class="explore-btn" data-project="ch04">Explorer le projet <span>→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 05 — DJS LYONNAIS -->
+  <section class="chapter" id="ch05" data-bg="#12081c" data-accent="#a06be0">
+    <div class="chapter-num-wrap">
+      <span class="chapter-num">05</span>
+    </div>
+    <div class="chapter-grid reverse">
+      <div class="chapter-text">
+        <p class="chapter-kicker">Scène électro lyonnaise · production vidéo</p>
+        <h3 class="chapter-title">Retour aux<br>sources</h3>
+        <p class="chapter-body">
+          En parallèle du web, la vidéo — là où tout a commencé. Teasers, captation,
+          montage, motion design pour plusieurs DJs de la scène lyonnaise.
+        </p>
+        <p class="chapter-body">
+          Des productions pas encore publiées au moment où j'écris ces lignes.
+          La suite se joue après la soutenance — et c'est peut-être le meilleur résumé
+          de ce qu'est une activité indépendante : elle ne s'arrête jamais à un rapport.
+        </p>
+        <p class="chapter-punch">Le stage se termine. L'activité, non.</p>
+        <button class="explore-btn" data-project="ch05">Explorer le projet <span>→</span></button>
+      </div>
+      <div class="chapter-media">
+        <div class="media-placeholder" data-placeholder="Vidéos DJs — extrait à venir">
+          <span class="ph-label">DJS LYONNAIS</span>
+          <span class="ph-sub">[ extrait vidéo à venir ]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing" data-bg="#0a0a0a">
+    <h2 class="closing-title reveal-up">CE QUE<br>J'EN RETIENS.</h2>
+    <div class="closing-list">
+      <div class="closing-item">
+        <span class="closing-index">01</span>
+        <p>La pluridisciplinarité — web, photo, vidéo, réseaux sociaux — est ma vraie valeur ajoutée face à la concurrence.</p>
+      </div>
+      <div class="closing-item">
+        <span class="closing-index">02</span>
+        <p>Un accord verbal n'est pas un contrat. Chaque mission commence désormais par un devis signé et un acompte versé.</p>
+      </div>
+      <div class="closing-item">
+        <span class="closing-index">03</span>
+        <p>La prospection est un travail invisible mais réel — elle mérite sa propre place dans l'organisation du temps.</p>
+      </div>
+      <div class="closing-item">
+        <span class="closing-index">04</span>
+        <p>Ce stage confirme une orientation professionnelle : l'indépendance, avec ses contraintes et ses libertés.</p>
+      </div>
+    </div>
+    <p class="closing-final">Ce rapport s'arrête ici. L'activité, elle, continue.</p>
+    <footer class="site-footer">
+      <span>Matthias Lernout</span>
+      <span>Bachelor Création Numérique — MADE iN Sainte-Marie Lyon / UQAT</span>
+      <span>2026</span>
+    </footer>
+  </section>
+
+</main>
+
+<!-- Chapter dots nav -->
+<div class="chapter-dots" id="chapterDots" aria-hidden="true">
+  <div class="chapter-dot" data-ch="ch01"></div>
+  <div class="chapter-dot" data-ch="ch02"></div>
+  <div class="chapter-dot" data-ch="ch03"></div>
+  <div class="chapter-dot" data-ch="ch04"></div>
+  <div class="chapter-dot" data-ch="ch05"></div>
+</div>
+
+<!-- PROJECT OVERLAY -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Détail du projet" tabindex="-1">
+  <div class="overlay-accent-line" id="overlayAccentLine"></div>
+  <div class="overlay-inner">
+
+    <header class="overlay-header">
+      <div class="overlay-header-meta">
+        <span class="overlay-kicker" id="overlayKicker"></span>
+        <h2 class="overlay-title" id="overlayTitle"></h2>
+      </div>
+      <div class="overlay-header-actions">
+        <nav class="overlay-nav" aria-label="Navigation entre projets">
+          <button class="overlay-nav-btn" id="overlayPrev" aria-label="Projet précédent">←</button>
+          <span class="overlay-nav-count" id="overlayNavCount" aria-live="polite">01 / 05</span>
+          <button class="overlay-nav-btn" id="overlayNext" aria-label="Projet suivant">→</button>
+        </nav>
+        <button class="overlay-close" id="overlayClose" aria-label="Fermer le panneau">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="overlay-body">
+      <!-- TEXT PANEL -->
+      <div class="overlay-text-panel" id="overlayTextPanel">
+        <div class="overlay-sections" id="overlaySections"></div>
+      </div>
+
+      <!-- DEMO PANEL -->
+      <div class="overlay-demo-panel" id="overlayDemoPanel">
+        <div class="browser-frame">
+          <div class="browser-chrome">
+            <div class="browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="browser-url-bar">
+              <span id="browserUrlText">—</span>
+            </div>
+            <a class="browser-open-link hidden" id="browserOpenLink" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir dans un nouvel onglet">↗</a>
+          </div>
+          <div class="browser-viewport">
+            <iframe id="overlayIframe" src="" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" title="Site client en démonstration" loading="lazy"></iframe>
+            <div class="demo-placeholder" id="demoPlaceholder">
+              <div class="demo-ph-num" id="demoPHNum"></div>
+              <p class="demo-ph-label" id="demoPHLabel"></p>
+              <p class="demo-ph-sub" id="demoPHSub"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
