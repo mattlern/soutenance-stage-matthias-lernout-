@@ -244,7 +244,7 @@ const projectsOrder = ['ch01', 'ch02', 'ch03', 'ch04', 'ch05'];
 const projectData = {
   ch01: {
     num: '01', kicker: 'BTP · Site vitrine', title: 'Ranc & Genevois',
-    accent: '#8fa6bd', url: null, demoType: 'web-pending',
+    accent: '#8fa6bd', url: 'https://rancetgenevoisconstruction.com', demoType: 'web',
     sections: [
       { heading: 'Contexte', body: 'Ranc & Genevois est une entreprise du BTP implantée à Lyon. Zéro présence en ligne au départ — pas de site, pas de réseaux sociaux, pas même un logo vectorisé. Dans un secteur où la réputation se bâtit encore par le bouche-à-oreille, la transition numérique n\'était pas une priorité pour le client.' },
       { heading: 'Démarchage', body: 'Premier contact par email professionnel, suivi d\'un appel téléphonique. L\'approche : se présenter comme spécialiste en visibilité d\'entreprises artisanales, pas comme un développeur web. Discours ancré dans leur réalité — crédibilité face aux grands groupes, visibilité Google Maps, référencement local.' },
@@ -255,7 +255,7 @@ const projectData = {
   },
   ch02: {
     num: '02', kicker: 'Boucherie artisanale · Démarchage direct', title: 'Maison Rouffiange',
-    accent: '#c85c3a', url: null, demoType: 'web-pending',
+    accent: '#c85c3a', url: 'https://www.maison-rouffiange.com/index.html', demoType: 'web',
     sections: [
       { heading: 'Contexte', body: 'Maison Rouffiange est une boucherie artisanale lyonnaise à forte identité locale. Le patron n\'avait pas de présence numérique — et ne la cherchait pas. C\'est moi qui suis allé le chercher, sans invitation, sans brief, sans commande.' },
       { heading: 'La technique du prototype', body: '« Je n\'ai pas besoin de site internet. » — première réponse du client, en face à face dans sa boutique. J\'avais construit une maquette complète du site avant même d\'avoir rendez-vous, uniquement à partir de ce qui était disponible en ligne. Montrer quelque chose de déjà concret change tout : on ne vend plus une idée, on montre une réalité.' },
