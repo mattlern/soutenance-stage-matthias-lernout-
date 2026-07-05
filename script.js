@@ -241,60 +241,74 @@ gsap.from('.closing-final', {
 
 const projectsOrder = ['ch01', 'ch02', 'ch03', 'ch04', 'ch05'];
 
+/* SVG icons for section types (index 0-4) */
+const sectionIcons = [
+  /* 0 — context */
+  `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1C5.24 1 3 3.24 3 6c0 3.75 5 9 5 9s5-5.25 5-9c0-2.76-2.24-5-5-5z"/><circle cx="8" cy="6" r="1.5"/></svg>`,
+  /* 1 — approach/démarchage */
+  `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6.5"/><circle cx="8" cy="8" r="3"/><circle cx="8" cy="8" r="1" fill="currentColor" stroke="none"/></svg>`,
+  /* 2 — process/creative */
+  `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,4 8,1 14,4 14,12 8,15 2,12 2,4"/><polyline points="8,1 8,15"/><line x1="2" y1="4" x2="14" y2="4"/></svg>`,
+  /* 3 — difficulty */
+  `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 1.5L4.5 9H8l-1.5 5.5 7-8.5H10L12 1.5z"/></svg>`,
+  /* 4 — results */
+  `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5,11 5,7.5 8,9.5 11,5 14.5,2.5"/><line x1="1.5" y1="14" x2="14.5" y2="14"/></svg>`,
+];
+
 const projectData = {
   ch01: {
     num: '01', kicker: 'BTP · Site vitrine', title: 'Ranc & Genevois',
     accent: '#8fa6bd', url: 'https://rancetgenevoisconstruction.com', demoType: 'web',
     sections: [
-      { heading: 'Contexte', body: 'Ranc & Genevois est une entreprise du BTP implantée à Lyon. Zéro présence en ligne au départ — pas de site, pas de réseaux sociaux, pas même un logo vectorisé. Dans un secteur où la réputation se bâtit encore par le bouche-à-oreille, la transition numérique n\'était pas une priorité pour le client.' },
-      { heading: 'Démarchage', body: 'Premier contact par email professionnel, suivi d\'un appel téléphonique. L\'approche : se présenter comme spécialiste en visibilité d\'entreprises artisanales, pas comme un développeur web. Discours ancré dans leur réalité — crédibilité face aux grands groupes, visibilité Google Maps, référencement local.' },
-      { heading: 'Process créatif', body: 'Partir de rien : logotype créé de A à Z en SVG, palette inspirée des matériaux de chantier (béton, acier, terre), contenus texte entièrement rédigés faute de brief client. Six pages structurées : accueil, services, réalisations, équipe, devis, contact. Trois cycles d\'itérations pour affiner les textes et la hiérarchie visuelle.' },
-      { heading: 'Difficultés', body: 'Disponibilité réduite du client — chaque validation prenait 5 à 7 jours. J\'ai appris à envoyer des exports statiques plutôt que des liens de prévisualisation bruts : ça réduit le temps de décision. Autre point dur : la rédaction des textes, entièrement à ma charge faute de brief.' },
-      { heading: 'Résultats', body: '6 pages livrées en 5 semaines. Nom de domaine co-sélectionné avec le client. Premier contrat signé avec acompte — première validation en conditions réelles du cycle complet : devis → signature → acompte → itérations → livraison.' }
+      { heading: 'Contexte',        keywords: ['BTP · Lyon', 'Zéro présence web', 'Secteur traditionnel', 'Pas de logo vectorisé'] },
+      { heading: 'Démarchage',      keywords: ['Email pro → appel', 'Pas "dev web"', 'Visibilité locale', 'Google Maps'] },
+      { heading: 'Process',         keywords: ['Logo SVG from scratch', '6 pages', 'Textes rédigés par moi', '3 cycles d\'itération'] },
+      { heading: 'Difficultés',     keywords: ['Validation 5-7 jours', 'Client peu disponible', 'Exports statiques'] },
+      { heading: 'Résultats',       keywords: ['6 pages livrées', 'Premier acompte', 'Cycle complet validé', 'Mise en ligne ✓'] },
     ]
   },
   ch02: {
     num: '02', kicker: 'Boucherie artisanale · Démarchage direct', title: 'Maison Rouffiange',
     accent: '#c85c3a', url: 'https://www.maison-rouffiange.com/index.html', demoType: 'web',
     sections: [
-      { heading: 'Contexte', body: 'Maison Rouffiange est une boucherie artisanale lyonnaise à forte identité locale. Le patron n\'avait pas de présence numérique — et ne la cherchait pas. C\'est moi qui suis allé le chercher, sans invitation, sans brief, sans commande.' },
-      { heading: 'La technique du prototype', body: '« Je n\'ai pas besoin de site internet. » — première réponse du client, en face à face dans sa boutique. J\'avais construit une maquette complète du site avant même d\'avoir rendez-vous, uniquement à partir de ce qui était disponible en ligne. Montrer quelque chose de déjà concret change tout : on ne vend plus une idée, on montre une réalité.' },
-      { heading: 'L\'élément différenciateur', body: 'Les affiches pédagogiques de boucherie — schémas anatomiques des morceaux de viande, typographie traditionnelle de boucher — intégrées comme éléments graphiques animés dans le design. Un pari entre tradition artisanale et modernité numérique. C\'est cet élément qui a transformé la curiosité en signature.' },
-      { heading: 'Difficultés', body: 'Timing serré : livraison prévue début juillet, juste avant la soutenance. La gestion des photos produit en haute qualité a nécessité une séance photo en boutique. Défi créatif : rester fidèle à l\'identité terroir sans tomber dans le cliché rustique.' },
-      { heading: 'Résultats', body: '8 pages livrées. 2 rendez-vous terrain. Le projet a redéfini ma méthode de prospection : le prototype pré-livraison est désormais mon approche systématique pour tous les démarchages directs.' }
+      { heading: 'Contexte',        keywords: ['Boucherie artisanale', 'Zéro présence', 'Démarchage froid'] },
+      { heading: 'Technique',       keywords: ['Prototype avant RDV', '"Je n\'ai pas besoin..."', 'Montrer > proposer'] },
+      { heading: 'Différenciateur', keywords: ['Affiches anatomiques', 'Tradition × numérique', 'Élément signature'] },
+      { heading: 'Difficultés',     keywords: ['Séance photo in situ', 'Livraison mi-juillet', 'Identité terroir'] },
+      { heading: 'Résultats',       keywords: ['8 pages livrées', '2 RDV terrain', 'Méthode prototype adoptée'] },
     ]
   },
   ch03: {
     num: '03', kicker: 'Gestion de patrimoine · Projet avorté', title: 'Fifteen Partners',
     accent: '#8a2b2b', url: null, demoType: 'none',
     sections: [
-      { heading: 'Le contexte', body: 'Fifteen Partners est un cabinet de conseil en gestion de patrimoine. Devis à plus de 4 000 € — le plus ambitieux du stage. Site complexe avec espace client, contenu juridique structuré, identité visuelle haut de gamme. Tout semblait parfaitement aligné.' },
-      { heading: 'La promesse verbale', body: '« On travaillera ensemble dans tous les cas. » — cette phrase prononcée lors du premier rendez-vous m\'a conduit à commencer les maquettes avant même la signature du devis. Pas de contrat. Pas d\'acompte. Juste une parole.' },
-      { heading: 'Le silence', body: 'Appels sans réponse. Messages promettant un rappel qui ne vient jamais. Deux semaines, puis trois. J\'ai dû continuer les autres projets en parallèle sans laisser cette incertitude bloquer le reste de l\'activité — mais l\'attente a un coût réel en énergie mentale.' },
-      { heading: 'Le dénouement', body: 'Un mail, des semaines plus tard. Un stagiaire de l\'entreprise avait produit un site avec une IA générative. Aucune explication supplémentaire. Aucun geste commercial. Fin de l\'histoire.' },
-      { heading: 'La règle immuable', body: 'Aucun travail ne commence sans contrat signé et acompte versé — sans exception, quelle que soit la relation ou le montant. Ce projet avorté est paradoxalement l\'un des plus formateurs du stage : il a structuré définitivement mes pratiques commerciales.' }
+      { heading: 'Contexte',        keywords: ['Gestion de patrimoine', 'Devis 4 000€+', 'Projet le + ambitieux'] },
+      { heading: 'La promesse',     keywords: ['"On travaillera ensemble"', 'Maquettes sans contrat', 'Erreur de débutant'] },
+      { heading: 'Le silence',      keywords: ['Appels sans réponse', '3 semaines d\'attente', 'Coût mental réel'] },
+      { heading: 'Le dénouement',   keywords: ['Site IA générative', 'Stagiaire interne', 'Zéro explication'] },
+      { heading: 'La règle',        keywords: ['Contrat avant tout', 'Acompte sans exception', 'Projet le + formateur'] },
     ]
   },
   ch04: {
     num: '04', kicker: 'Restaurant · Community management', title: 'Sacré-Alphonse',
     accent: '#e0a530', url: null, demoType: 'social',
     sections: [
-      { heading: 'Contexte', body: 'Sacré-Alphonse est un restaurant lyonnais avec une identité forte — bistronomie décomplexée, ambiance chaleureuse, clientèle fidèle. Mission : community management Instagram sur 3 mois, avec production de contenus originaux en total autonomie.' },
-      { heading: 'Process créatif', body: '14 contenus produits : 7 Reels, 7 photos. Brief interne établi dès le départ — ton chaleureux, décalé, jamais forcé. Chaque contenu planifié, shooté sur place, monté et publié dans la même semaine.' },
-      { heading: 'Technique de production', body: 'Captation smartphone (iPhone 15 Pro) + réflecteur portatif pour les intérieurs. Montage sur CapCut et Premiere Pro. Sous-titres natifs corrigés manuellement. Musique depuis Epidemic Sound. Chaque Reels optimisé pour les 3 premières secondes — hook narratif et accroche visuelle immédiats.' },
-      { heading: 'Le Reels à 500 000 vues', body: 'Un format « behind the scenes cuisine » — simple, authentique, zéro mise en scène forcée — a atteint 500 000 vues sans aucune promotion payante. Résultat qui dépasse les performances de la page depuis sa création. Leçon : la régularité crée la base, l\'authenticité déclenche la viralité.' },
-      { heading: 'Résultats', body: '+200 abonnés organiques en 3 mois. 500 000 vues sur le meilleur Reels. Taux d\'engagement supérieur au benchmark restauration. La mission se poursuit au-delà de la fin du stage.' }
+      { heading: 'Contexte',        keywords: ['Restaurant Lyon', 'CM Instagram · 3 mois', 'Total autonomie'] },
+      { heading: 'Production',      keywords: ['14 contenus', '7 Reels + 7 photos', 'Brief interne', 'Même semaine'] },
+      { heading: 'Technique',       keywords: ['iPhone 15 Pro', 'Hook 3 premières sec.', 'CapCut + Premiere', 'Epidemic Sound'] },
+      { heading: '500 000 vues',    keywords: ['Behind the scenes', 'Zéro promotion payante', 'Authenticité > mise en scène'] },
+      { heading: 'Résultats',       keywords: ['+200 abonnés organiques', '500K vues', 'Mission toujours active'] },
     ]
   },
   ch05: {
     num: '05', kicker: 'Scène électro lyonnaise · Production vidéo', title: 'DJs Lyonnais',
     accent: '#a06be0', url: null, demoType: 'video',
     sections: [
-      { heading: 'Contexte', body: 'En parallèle des projets web, la vidéo — le médium par lequel tout a commencé, avant même la création de l\'entreprise. Teasers d\'événements, captation de sets live, aftermovies, motion design pour plusieurs DJs de la scène électronique lyonnaise.' },
-      { heading: 'Formats produits', body: 'Plusieurs livrables : teasers 30s pour des soirées, aftermovies 2-3 min, visuels animés pour stories Instagram. Chaque format répond à une logique différente — le teaser crée l\'urgence, l\'aftermovie capture l\'émotion, le visuel story retient en 3 secondes.' },
-      { heading: 'Technique', body: 'Captation en conditions difficiles : lumière artificielle intense, mouvement constant. Sony ZV-E10 + 35mm f/1.8. Post-production sur Premiere Pro + After Effects pour les motion graphics. Étalonnage colorimétrique spécifique — teintes froides, hauts contrastes, look cinéma électro.' },
-      { heading: 'Statut des productions', body: 'Ces productions ne sont pas publiées à la date de la soutenance — les DJs les conservent pour des sorties coordonnées avec leurs dates d\'événements. C\'est la réalité du freelance dans ce secteur : les délais de publication ne dépendent pas du prestataire.' },
-      { heading: 'Ce que ça dit', body: 'Ce projet rappelle pourquoi la pluridisciplinarité est ma vraie valeur ajoutée. Web, vidéo, réseaux sociaux, motion design — je peux tout livrer pour un même client. Le stage se termine. L\'activité, non.' }
+      { heading: 'Contexte',        keywords: ['Scène électro Lyon', 'Teasers · sets · aftermovies', 'Avant l\'entreprise'] },
+      { heading: 'Formats',         keywords: ['Teaser 30s = urgence', 'Aftermovie 2-3min = émotion', 'Story = 3 secondes'] },
+      { heading: 'Technique',       keywords: ['Sony ZV-E10 · 35mm f/1.8', 'Lumière scène difficile', 'Look cinéma électro'] },
+      { heading: 'Statut',          keywords: ['Non publiées à ce jour', 'Sorties coordonnées DJs', 'Réalité du freelance'] },
+      { heading: 'Bilan',           keywords: ['Pluridisciplinarité', 'Web + vidéo + motion', 'L\'activité continue'] },
     ]
   }
 };
@@ -342,11 +356,16 @@ function populateOverlay(id) {
   const idx = projectsOrder.indexOf(id);
   overlayNavCount.textContent = `${String(idx + 1).padStart(2,'0')} / 0${projectsOrder.length}`;
 
-  /* sections */
-  overlaySections.innerHTML = data.sections.map(s => `
+  /* sections — keyword pills with SVG icons */
+  overlaySections.innerHTML = data.sections.map((s, i) => `
     <div class="overlay-section">
-      <h4 class="overlay-section-heading">${s.heading}</h4>
-      <p class="overlay-section-body">${s.body}</p>
+      <div class="section-icon-label">
+        <span class="section-icon">${sectionIcons[i] || sectionIcons[0]}</span>
+        <h4 class="overlay-section-heading">${s.heading}</h4>
+      </div>
+      <div class="section-keywords">
+        ${s.keywords.map(k => `<span class="keyword">${k}</span>`).join('')}
+      </div>
     </div>`).join('');
 
   overlayTextPanel.scrollTop = 0;
