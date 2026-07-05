@@ -410,12 +410,18 @@ function populateOverlay(id) {
   }
 }
 
+/* -- wheel blocker: stop events from bubbling to Lenis at window level -- */
+function stopWheelPropagation(e) { e.stopPropagation(); }
+
 /* -- open overlay with slide-in -- */
 function openOverlay(id) {
   previousFocus = document.activeElement;
   populateOverlay(id);
   overlay.classList.add('is-open');
   lenis.stop();
+  /* allow native scroll inside overlay panels */
+  overlayTextPanel.addEventListener('wheel', stopWheelPropagation);
+  overlayTextPanel.addEventListener('touchmove', stopWheelPropagation);
 
   if (prefersReduced) {
     gsap.set(overlay, { xPercent: 0 });
@@ -430,6 +436,8 @@ function openOverlay(id) {
 
 /* -- close with slide-out -- */
 function closeOverlay() {
+  overlayTextPanel.removeEventListener('wheel', stopWheelPropagation);
+  overlayTextPanel.removeEventListener('touchmove', stopWheelPropagation);
   const done = () => {
     overlay.classList.remove('is-open');
     overlayIframe.src = '';
@@ -486,22 +494,23 @@ document.querySelectorAll('.overlay-close,.overlay-nav-btn,.browser-open-link').
    LEVEL 2 — BEST TRANSITIONS
    ================================================================ */
 
-/* -- Manifesto: word-by-word scrubbed reveal -- */
+/* -- Manifesto: word-by-word reveal (readable, triggered early) -- */
 (function wrapManifestoWords() {
   const mt = document.querySelector('.manifesto-text');
   if (!mt) return;
   mt.innerHTML = mt.innerHTML.replace(/(\S+)/g, '<span class="word">$1</span>');
   const words = mt.querySelectorAll('.word');
-  gsap.set(words, { opacity: 0.08 });
+  gsap.set(words, { opacity: 0.12, y: 8 });
   gsap.to(words, {
     opacity: 1,
-    stagger: 0.05,
-    ease: 'none',
+    y: 0,
+    stagger: 0.025,
+    duration: 0.45,
+    ease: 'power2.out',
     scrollTrigger: {
       trigger: '.manifesto',
-      start: 'top 75%',
-      end: 'bottom 35%',
-      scrub: 0.6,
+      start: 'top 85%',
+      once: true,
     }
   });
 })();
