@@ -134,16 +134,7 @@ gsap.to('.scroll-cue', {
   }
 });
 
-/* ---------------- Manifesto reveal ---------------- */
-gsap.from('.manifesto-text', {
-  opacity: 0.15,
-  scrollTrigger: {
-    trigger: '.manifesto',
-    start: 'top 80%',
-    end: 'top 20%',
-    scrub: true,
-  }
-});
+/* manifesto reveal handled by word-by-word animation in Level 2 */
 
 /* ---------------- Chapters intro title ---------------- */
 gsap.from('.chapters-intro-title', {
@@ -160,67 +151,47 @@ gsap.from('.chapters-intro-sub', {
   scrollTrigger: { trigger: '.chapters-intro', start: 'top 60%' }
 });
 
-/* ---------------- Chapter reveals ---------------- */
+/* ---------------- Chapter reveals (one timeline + one ST per chapter) ---------------- */
 document.querySelectorAll('.chapter').forEach((chapter) => {
   const media = chapter.querySelector('.media-placeholder');
-  const text = chapter.querySelector('.chapter-text');
-  const num = chapter.querySelector('.chapter-num');
+  const text  = chapter.querySelector('.chapter-text');
+  const num   = chapter.querySelector('.chapter-num');
 
-  if (media) {
-    gsap.from(media, {
-      clipPath: 'inset(15% 15% 15% 15%)',
-      opacity: 0,
-      scale: 0.9,
-      duration: 1.2,
-      ease: 'power4.out',
-      scrollTrigger: { trigger: chapter, start: 'top 65%' }
-    });
-  }
-  if (text) {
-    gsap.from(text.children, {
-      opacity: 0,
-      y: 40,
-      duration: 0.9,
-      stagger: 0.12,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: chapter, start: 'top 60%' }
-    });
-  }
+  /* single timeline per chapter, triggered once */
+  const tl = gsap.timeline({
+    scrollTrigger: { trigger: chapter, start: 'top 68%', once: true }
+  });
+
+  if (num)   tl.fromTo(num,  { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }, 0);
+  if (media) tl.fromTo(media,{ clipPath: 'inset(12% 12% 12% 12%)', opacity: 0, scale: 0.92 },
+                               { clipPath: 'inset(0% 0% 0% 0%)', opacity: 1, scale: 1, duration: 1, ease: 'power4.out' }, 0.05);
+  if (text)  tl.from(Array.from(text.children), { opacity: 0, y: 32, duration: 0.75, stagger: 0.09, ease: 'power3.out' }, 0.1);
+
+  /* num parallax — separate scrub (lightweight) */
   if (num) {
-    gsap.fromTo(num,
-      { opacity: 0, scale: 0.6 },
-      {
-        opacity: 1, scale: 1, duration: 1, ease: 'back.out(1.7)',
-        scrollTrigger: { trigger: chapter, start: 'top 75%' }
-      }
-    );
     gsap.to(num, {
-      yPercent: 40,
-      ease: 'none',
+      yPercent: 35, ease: 'none',
       scrollTrigger: { trigger: chapter, start: 'top top', end: 'bottom top', scrub: true }
     });
   }
 
-  /* count-up stats */
-  chapter.querySelectorAll('.stat-num').forEach((statEl) => {
-    const target = parseInt(statEl.getAttribute('data-count'), 10);
+  /* count-up stats — one ST per chapter (not per stat) */
+  const statEls = chapter.querySelectorAll('.stat-num');
+  if (statEls.length) {
     ScrollTrigger.create({
-      trigger: statEl,
-      start: 'top 85%',
-      once: true,
+      trigger: chapter, start: 'top 70%', once: true,
       onEnter: () => {
-        const obj = { val: 0 };
-        gsap.to(obj, {
-          val: target,
-          duration: 1.6,
-          ease: 'power2.out',
-          onUpdate: () => {
-            statEl.textContent = Math.floor(obj.val).toLocaleString('fr-FR');
-          }
+        statEls.forEach(statEl => {
+          const target = parseInt(statEl.getAttribute('data-count'), 10);
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: target, duration: 1.6, ease: 'power2.out',
+            onUpdate: () => { statEl.textContent = Math.floor(obj.val).toLocaleString('fr-FR'); }
+          });
         });
       }
     });
-  });
+  }
 });
 
 /* ---------------- Fifteen Partners glitch pulse ---------------- */
@@ -593,18 +564,7 @@ document.querySelectorAll('.chapter-punch').forEach(el => {
   });
 })();
 
-/* -- Scroll velocity: subtle skew on chapter grids -- */
-(function initVelocitySkew() {
-  const grids = document.querySelectorAll('.chapter-grid');
-  let lastY = 0;
-  let skewAmt = 0;
-  lenis.on('scroll', ({ scroll }) => {
-    const delta = scroll - lastY;
-    lastY = scroll;
-    skewAmt += (-delta * 0.018 - skewAmt) * 0.12;
-    grids.forEach(g => gsap.set(g, { skewY: Math.max(-2.5, Math.min(2.5, skewAmt)) }));
-  });
-})();
+/* velocity skew removed — caused layout jank */
 
 /* -- Magnetic cursor on explore buttons -- */
 document.querySelectorAll('.explore-btn').forEach(btn => {
@@ -628,41 +588,4 @@ if (tickerTrack) {
   tickerTrack.addEventListener('mouseleave', () => gsap.to(tickerTrack, { timeScale: 1, duration: 0.4 }));
 }
 
-/* -- Chapter title staggered clip-path reveal (enhanced) -- */
-document.querySelectorAll('.chapter-title').forEach(title => {
-  gsap.fromTo(title,
-    { clipPath: 'inset(0 100% 0 0)' },
-    {
-      clipPath: 'inset(0 0% 0 0)',
-      duration: 1,
-      ease: 'power4.out',
-      scrollTrigger: { trigger: title, start: 'top 80%', once: true }
-    }
-  );
-});
-
-/* -- Chapter kicker slide up -- */
-document.querySelectorAll('.chapter-kicker').forEach(el => {
-  gsap.from(el, {
-    opacity: 0, y: 18, duration: 0.7, ease: 'power3.out',
-    scrollTrigger: { trigger: el, start: 'top 85%', once: true }
-  });
-});
-
-/* -- Stats stagger entrance -- */
-document.querySelectorAll('.chapter-stats').forEach(stats => {
-  gsap.from(stats.querySelectorAll('.stat'), {
-    opacity: 0, y: 22, scale: 0.92, duration: 0.7,
-    stagger: 0.12, ease: 'back.out(1.7)',
-    scrollTrigger: { trigger: stats, start: 'top 82%', once: true }
-  });
-});
-
-/* -- Closing title clip reveal -- */
-gsap.fromTo('.closing-title',
-  { clipPath: 'inset(0 0 100% 0)' },
-  {
-    clipPath: 'inset(0 0 0% 0)', duration: 1.3, ease: 'power4.out',
-    scrollTrigger: { trigger: '.closing-title', start: 'top 75%', once: true }
-  }
-);
+/* chapter-title, kicker, stats, closing-title — handled by original chapter reveal system */
