@@ -291,7 +291,7 @@ const projectData = {
   },
   ch04: {
     num: '04', kicker: 'Restaurant · Community management', title: 'Sacré-Alphonse',
-    accent: '#e0a530', url: null, demoType: 'social',
+    accent: '#e0a530', url: null, demoType: 'reel', videoSrc: 'sacre-alphonse-reel.mp4',
     sections: [
       { heading: 'Contexte',        keywords: ['Restaurant Lyon', 'CM Instagram · 3 mois', 'Total autonomie'] },
       { heading: 'Production',      keywords: ['14 contenus', '7 Reels + 7 photos', 'Brief interne', 'Même semaine'] },
@@ -327,6 +327,7 @@ const overlayTitle   = document.getElementById('overlayTitle');
 const overlaySections= document.getElementById('overlaySections');
 const overlayTextPanel= document.getElementById('overlayTextPanel');
 const overlayIframe  = document.getElementById('overlayIframe');
+const overlayVideo   = document.getElementById('overlayVideo');
 const demoPlaceholder= document.getElementById('demoPlaceholder');
 const demoPHNum      = document.getElementById('demoPHNum');
 const demoPHLabel    = document.getElementById('demoPHLabel');
@@ -370,32 +371,42 @@ function populateOverlay(id) {
 
   overlayTextPanel.scrollTop = 0;
 
-  /* demo panel */
-  if (data.url) {
+  /* demo panel — reset all */
+  overlayIframe.style.display = 'none';
+  overlayIframe.src = '';
+  overlayVideo.style.display = 'none';
+  overlayVideo.pause();
+  overlayVideo.src = '';
+  demoPlaceholder.classList.add('hidden');
+  browserOpenLink.classList.add('hidden');
+
+  if (data.demoType === 'reel' && data.videoSrc) {
+    /* vertical Reels video */
+    overlayVideo.style.display = 'block';
+    overlayVideo.src = data.videoSrc;
+    overlayVideo.load();
+    overlayVideo.play().catch(() => {});
+    browserUrlText.textContent = '@sacre.alphonse · instagram';
+  } else if (data.url) {
+    /* live website iframe */
     overlayIframe.style.display = 'block';
     overlayIframe.src = data.url;
-    demoPlaceholder.classList.add('hidden');
     browserUrlText.textContent = data.url.replace(/^https?:\/\//, '');
     browserOpenLink.href = data.url;
     browserOpenLink.classList.remove('hidden');
   } else {
-    overlayIframe.style.display = 'none';
-    overlayIframe.src = '';
+    /* placeholder */
     demoPlaceholder.classList.remove('hidden');
-    browserOpenLink.classList.add('hidden');
     demoPHNum.textContent = data.num;
-
     const states = {
-      'web-pending': { url: 'mise en ligne prochainement', label: 'Site en cours de mise en ligne',   sub: 'L\'URL sera renseignée prochainement' },
-      'none':        { url: 'projet non livré',            label: 'Projet non livré',                 sub: 'Remplacé par un site IA générative' },
-      'social':      { url: '@sacre.alphonse · instagram', label: 'Mission community management',     sub: 'Contenu disponible sur Instagram' },
-      'video':       { url: 'productions non publiées',    label: 'Productions vidéo',                sub: 'Sorties prévues post-soutenance' }
+      'web-pending': { url: 'mise en ligne prochainement', label: 'Site en cours de mise en ligne', sub: 'L\'URL sera renseignée prochainement' },
+      'none':        { url: 'projet non livré',            label: 'Projet non livré',               sub: 'Remplacé par un site IA générative' },
+      'video':       { url: 'productions non publiées',    label: 'Productions vidéo',              sub: 'Sorties prévues post-soutenance' },
     };
     const s = states[data.demoType] || states['web-pending'];
     browserUrlText.textContent = s.url;
     demoPHLabel.textContent    = s.label;
     demoPHSub.textContent      = s.sub;
-
     if (data.demoType === 'none') demoPHNum.textContent = '✕';
   }
 }
@@ -431,6 +442,8 @@ function closeOverlay() {
   const done = () => {
     overlay.classList.remove('is-open');
     overlayIframe.src = '';
+    overlayVideo.pause();
+    overlayVideo.src = '';
     currentProjectId = null;
     lenis.start();
     if (previousFocus) previousFocus.focus();
