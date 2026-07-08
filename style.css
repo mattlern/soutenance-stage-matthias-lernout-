@@ -559,6 +559,21 @@ section{
   object-fit:contain;
   background:#000;
 }
+.video-switcher{
+  display:flex;gap:.6rem;padding:.9rem 0 0;
+  justify-content:center;
+  flex-shrink:0;
+}
+.video-switcher-btn{
+  height:3px;flex:1;max-width:60px;
+  background:rgba(244,242,236,.18);
+  border:none;cursor:none;
+  border-radius:2px;
+  transition:background .25s ease,transform .2s ease;
+  padding:0;
+}
+.video-switcher-btn.active{background:var(--overlay-accent);}
+.video-switcher-btn:hover{transform:scaleY(2);}
 
 .demo-placeholder{
   position:absolute;inset:0;

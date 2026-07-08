@@ -302,7 +302,7 @@ const projectData = {
   },
   ch05: {
     num: '05', kicker: 'Scène électro lyonnaise · Production vidéo', title: 'DJs Lyonnais',
-    accent: '#a06be0', url: null, demoType: 'video',
+    accent: '#a06be0', url: null, demoType: 'video-gallery', videoSrcs: ['dj-set-01-web.mp4', 'dj-set-02-web.mp4', 'dj-set-03-web.mp4'],
     sections: [
       { heading: 'Contexte',        keywords: ['Scène électro Lyon', 'Teasers · sets · aftermovies', 'Avant l\'entreprise'] },
       { heading: 'Formats',         keywords: ['Teaser 30s = urgence', 'Aftermovie 2-3min = émotion', 'Story = 3 secondes'] },
@@ -327,7 +327,8 @@ const overlayTitle   = document.getElementById('overlayTitle');
 const overlaySections= document.getElementById('overlaySections');
 const overlayTextPanel= document.getElementById('overlayTextPanel');
 const overlayIframe  = document.getElementById('overlayIframe');
-const overlayVideo   = document.getElementById('overlayVideo');
+const overlayVideo        = document.getElementById('overlayVideo');
+const overlayVideoSwitcher= document.getElementById('overlayVideoSwitcher');
 const demoPlaceholder= document.getElementById('demoPlaceholder');
 const demoPHNum      = document.getElementById('demoPHNum');
 const demoPHLabel    = document.getElementById('demoPHLabel');
@@ -377,11 +378,40 @@ function populateOverlay(id) {
   overlayVideo.style.display = 'none';
   overlayVideo.pause();
   overlayVideo.src = '';
+  overlayVideoSwitcher.style.display = 'none';
+  overlayVideoSwitcher.innerHTML = '';
   demoPlaceholder.classList.add('hidden');
   browserOpenLink.classList.add('hidden');
 
-  if (data.demoType === 'reel' && data.videoSrc) {
-    /* vertical Reels video */
+  if (data.demoType === 'video-gallery' && data.videoSrcs?.length) {
+    /* multi-video carousel for DJ sets */
+    overlayVideo.style.display = 'block';
+    browserUrlText.textContent = 'productions vidéo · scène électro lyon';
+    overlayVideoSwitcher.style.display = 'flex';
+
+    function loadVideo(idx) {
+      overlayVideo.src = data.videoSrcs[idx];
+      overlayVideo.load();
+      overlayVideo.play().catch(() => {});
+      overlayVideoSwitcher.querySelectorAll('.video-switcher-btn').forEach((b, i) => {
+        b.classList.toggle('active', i === idx);
+      });
+    }
+
+    data.videoSrcs.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'video-switcher-btn' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', `Vidéo ${i + 1}`);
+      btn.addEventListener('click', () => loadVideo(i));
+      btn.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      btn.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      overlayVideoSwitcher.appendChild(btn);
+    });
+
+    loadVideo(0);
+
+  } else if (data.demoType === 'reel' && data.videoSrc) {
+    /* single vertical Reels video */
     overlayVideo.style.display = 'block';
     overlayVideo.src = data.videoSrc;
     overlayVideo.load();
