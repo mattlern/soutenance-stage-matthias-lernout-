@@ -125,30 +125,39 @@
             <rect width="480" height="600" fill="url(#sky01)"/>
             <!-- Ghost 01 -->
             <text x="-10" y="490" font-family="Anton,sans-serif" font-size="340" fill="#8fa6bd" opacity="0.03">01</text>
-            <!-- TRUELLE — silhouette -->
-            <!-- Blade (kite shape, tip down) -->
-            <path d="M 240,450 L 150,218 Q 168,148 240,144 Q 312,148 330,218 Z"
-                  fill="#060a0f" stroke="#8fa6bd" stroke-width="1.2" opacity="0.82"/>
-            <!-- Blade metallic sheen -->
-            <path d="M 240,450 L 150,218 Q 168,148 240,144 Q 312,148 330,218 Z"
-                  fill="url(#bladeSheen01)"/>
-            <!-- Left edge highlight — neon glow -->
-            <path d="M 240,450 L 150,218 Q 168,148 240,144"
-                  fill="none" stroke="#c8dde8" stroke-width="1" opacity="0.50" filter="url(#winGlow01)"/>
-            <!-- Central fold ridge -->
-            <line x1="240" y1="450" x2="240" y2="144" stroke="#8fa6bd" stroke-width="0.5" opacity="0.18"/>
-            <!-- Subtle mortar texture lines on blade -->
-            <line x1="192" y1="282" x2="288" y2="272" stroke="#8fa6bd" stroke-width="0.4" opacity="0.12"/>
-            <line x1="178" y1="328" x2="302" y2="320" stroke="#8fa6bd" stroke-width="0.3" opacity="0.09"/>
-            <line x1="168" y1="374" x2="312" y2="368" stroke="#8fa6bd" stroke-width="0.3" opacity="0.09"/>
-            <!-- Shank (flat bar between blade and handle) -->
-            <rect x="218" y="94" width="44" height="54" rx="5" fill="#07090e" stroke="#8fa6bd" stroke-width="0.9" opacity="0.72"/>
-            <!-- Handle grip (rounded, wooden) -->
-            <rect x="200" y="32" width="80" height="66" rx="26" fill="#07090e" stroke="#8fa6bd" stroke-width="1.1" opacity="0.82"/>
-            <!-- Handle highlight streak -->
-            <line x1="224" y1="40" x2="224" y2="92" stroke="#c8dde8" stroke-width="0.8" opacity="0.22"/>
-            <!-- Handle end cap glow -->
-            <ellipse cx="240" cy="38" rx="18" ry="6" fill="#c8dde8" opacity="0.06" filter="url(#antGlow01)"/>
+            <!-- TRUELLE — inclinée ~20° pour le dynamisme -->
+            <g transform="rotate(-20, 240, 290)">
+              <!-- LAME — large triangle, talon en haut, pointe en bas -->
+              <path d="M 108,215 L 372,215 Q 368,295 240,455 Q 112,295 108,215 Z"
+                    fill="#06090e" stroke="#8fa6bd" stroke-width="1.5" opacity="0.85"/>
+              <!-- Sheen sur la lame -->
+              <path d="M 108,215 L 372,215 Q 368,295 240,455 Q 112,295 108,215 Z"
+                    fill="url(#bladeSheen01)"/>
+              <!-- Talon (bord haut droit de la lame) -->
+              <line x1="108" y1="215" x2="372" y2="215" stroke="#8fa6bd" stroke-width="1.2" opacity="0.45"/>
+              <!-- Axe central (pli) -->
+              <line x1="240" y1="215" x2="240" y2="455" stroke="#8fa6bd" stroke-width="0.5" opacity="0.14"/>
+              <!-- Bord gauche lumineux -->
+              <path d="M 108,215 Q 112,295 240,455"
+                    fill="none" stroke="#c8dde8" stroke-width="1.3" opacity="0.55" filter="url(#winGlow01)"/>
+              <!-- Lignes de mortier sur la lame -->
+              <line x1="148" y1="268" x2="332" y2="268" stroke="#8fa6bd" stroke-width="0.5" opacity="0.14"/>
+              <line x1="168" y1="318" x2="312" y2="318" stroke="#8fa6bd" stroke-width="0.4" opacity="0.11"/>
+              <line x1="188" y1="368" x2="292" y2="368" stroke="#8fa6bd" stroke-width="0.4" opacity="0.10"/>
+              <!-- SOIE — tige coudée reliant lame au manche -->
+              <path d="M 240,215 L 236,168 L 242,128"
+                    fill="none" stroke="#8fa6bd" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
+              <path d="M 240,215 L 236,168 L 242,128"
+                    fill="none" stroke="#8fa6bd" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.90"/>
+              <!-- MANCHE — cylindre bois -->
+              <rect x="204" y="52" width="76" height="78" rx="28" fill="#07090e" stroke="#8fa6bd" stroke-width="1.2" opacity="0.88"/>
+              <!-- Bague ferrure sur le manche -->
+              <rect x="210" y="118" width="64" height="12" rx="3" fill="none" stroke="#8fa6bd" stroke-width="0.8" opacity="0.45"/>
+              <!-- Reflet longitudinal du manche -->
+              <line x1="224" y1="62" x2="224" y2="116" stroke="#c8dde8" stroke-width="0.9" opacity="0.22"/>
+              <!-- Embout lumineux -->
+              <ellipse cx="242" cy="58" rx="20" ry="7" fill="#c8dde8" opacity="0.06" filter="url(#antGlow01)"/>
+            </g>
             <text x="240" y="572" font-family="Space Grotesk,sans-serif" font-size="7.5" fill="#8fa6bd" opacity="0.18" text-anchor="middle" letter-spacing="4">RANC &amp; GENEVOIS · BTP LYON</text>
           </svg>
         </div>
