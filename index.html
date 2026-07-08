@@ -208,59 +208,57 @@
         <div class="media-placeholder" data-placeholder="Site Maison Rouffiange">
           <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;display:block" aria-hidden="true">
             <defs>
-              <radialGradient id="backlight02" cx="44%" cy="52%" r="60%">
-                <stop offset="0%" stop-color="#c85c3a" stop-opacity="0.50"/>
-                <stop offset="45%" stop-color="#8a2a15" stop-opacity="0.16"/>
-                <stop offset="100%" stop-color="#1a0c08" stop-opacity="0"/>
+              <radialGradient id="backlight02" cx="50%" cy="48%" r="62%">
+                <stop offset="0%" stop-color="#c82010" stop-opacity="0.45"/>
+                <stop offset="50%" stop-color="#8a1808" stop-opacity="0.14"/>
+                <stop offset="100%" stop-color="#1a0402" stop-opacity="0"/>
               </radialGradient>
-              <filter id="eyeGlow02" x="-300%" y="-300%" width="700%" height="700%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b"/>
-                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-              </filter>
-              <filter id="hornGlow02" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/>
+              <filter id="edgeGlow02" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b"/>
                 <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
-              <filter id="atmBlur02" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="24"/>
+              <filter id="boneGlow02" x="-200%" y="-200%" width="500%" height="500%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
               </filter>
+              <filter id="atmBlur02" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="28"/>
+              </filter>
+              <clipPath id="steakClip">
+                <path d="M 132,278 C 130,205 172,145 244,136 C 316,127 375,164 382,232 C 389,300 358,372 322,415 C 286,458 252,478 218,474 C 184,470 146,440 134,396 C 122,352 134,322 132,278 Z"/>
+              </clipPath>
             </defs>
-            <rect width="480" height="600" fill="#120604"/>
+            <rect width="480" height="600" fill="#0e0302"/>
             <!-- Ghost 02 -->
-            <text x="10" y="510" font-family="Anton,sans-serif" font-size="320" fill="#c85c3a" opacity="0.035">02</text>
+            <text x="10" y="510" font-family="Anton,sans-serif" font-size="320" fill="#c82010" opacity="0.04">02</text>
             <!-- Atmospheric backlight -->
-            <ellipse cx="230" cy="340" rx="200" ry="190" fill="#c85c3a" opacity="0.26" filter="url(#atmBlur02)"/>
-            <ellipse cx="230" cy="340" rx="240" ry="220" fill="url(#backlight02)"/>
-            <!-- CÔTE DE BŒUF — tomahawk style -->
-            <!-- Bone shaft (long diagonal, lower-left to upper-right) -->
-            <path d="M 235,310 Q 300,210 378,108"
-                  fill="none" stroke="#f0e2cc" stroke-width="26" stroke-linecap="round" opacity="0.72" filter="url(#hornGlow02)"/>
-            <path d="M 235,310 Q 300,210 378,108"
-                  fill="none" stroke="#e2cdb0" stroke-width="16" stroke-linecap="round" opacity="0.80"/>
-            <path d="M 235,310 Q 300,210 378,108"
-                  fill="none" stroke="#f8eedc" stroke-width="5" stroke-linecap="round" opacity="0.50"/>
-            <!-- Bone tip knob (upper-right) -->
-            <circle cx="378" cy="108" r="26" fill="#0f0603" stroke="#e2cdb0" stroke-width="14" opacity="0.70" filter="url(#eyeGlow02)"/>
-            <circle cx="378" cy="108" r="12" fill="#f0e2cc" opacity="0.82"/>
-            <!-- Bone base knob (at meat junction) -->
-            <circle cx="234" cy="312" r="22" fill="#0f0603" stroke="#c8a880" stroke-width="10" opacity="0.65"/>
-            <circle cx="234" cy="312" r="9" fill="#dcc8a0" opacity="0.55"/>
-            <!-- MEAT BODY (thick irregular oval, below and left of bone base) -->
-            <ellipse cx="200" cy="410" rx="158" ry="112" fill="#160705" stroke="#c85c3a" stroke-width="1.5" opacity="0.85"/>
-            <!-- Fat cap — bright edge strip on top-right of meat -->
-            <path d="M 298,310 Q 358,342 360,410 Q 358,468 310,490"
-                  fill="none" stroke="#d47850" stroke-width="10" stroke-linecap="round" opacity="0.40"/>
-            <!-- Marbling lines (interior fat veins) -->
-            <path d="M 88,388 Q 148,372 210,390 Q 260,404 318,386"
-                  fill="none" stroke="#c85c3a" stroke-width="0.8" opacity="0.25"/>
-            <path d="M 72,428 Q 140,410 205,430 Q 262,446 328,426"
-                  fill="none" stroke="#c85c3a" stroke-width="0.6" opacity="0.18"/>
-            <path d="M 82,462 Q 155,448 222,465 Q 270,476 318,458"
-                  fill="none" stroke="#c85c3a" stroke-width="0.5" opacity="0.14"/>
-            <!-- Meat edge glow -->
-            <ellipse cx="200" cy="410" rx="158" ry="112" fill="none" stroke="#c85c3a" stroke-width="4" opacity="0.32" filter="url(#hornGlow02)"/>
-            <text x="240" y="544" font-family="Space Grotesk,sans-serif" font-size="9" fill="#c85c3a" opacity="0.38" text-anchor="middle" letter-spacing="8">BOUCHERIE ARTISANALE</text>
-            <text x="240" y="572" font-family="Space Grotesk,sans-serif" font-size="7.5" fill="#c85c3a" opacity="0.18" text-anchor="middle" letter-spacing="4">MAISON ROUFFIANGE · LYON</text>
+            <ellipse cx="252" cy="300" rx="210" ry="195" fill="#c82010" opacity="0.28" filter="url(#atmBlur02)"/>
+            <ellipse cx="252" cy="300" rx="245" ry="220" fill="url(#backlight02)"/>
+            <!-- STEAK BODY — single organic piece -->
+            <path d="M 132,278 C 130,205 172,145 244,136 C 316,127 375,164 382,232 C 389,300 358,372 322,415 C 286,458 252,478 218,474 C 184,470 146,440 134,396 C 122,352 134,322 132,278 Z"
+                  fill="#1e0705" stroke="#e83820" stroke-width="2.8" opacity="0.92"/>
+            <!-- Neon edge glow -->
+            <path d="M 132,278 C 130,205 172,145 244,136 C 316,127 375,164 382,232 C 389,300 358,372 322,415 C 286,458 252,478 218,474 C 184,470 146,440 134,396 C 122,352 134,322 132,278 Z"
+                  fill="none" stroke="#e83820" stroke-width="6" opacity="0.45" filter="url(#edgeGlow02)"/>
+            <!-- MARBLING LINES clipped inside steak -->
+            <g clip-path="url(#steakClip)" opacity="0.30">
+              <line x1="128" y1="225" x2="385" y2="200" stroke="#d03018" stroke-width="1.2"/>
+              <line x1="126" y1="268" x2="390" y2="248" stroke="#d03018" stroke-width="0.9"/>
+              <line x1="126" y1="312" x2="390" y2="296" stroke="#d03018" stroke-width="1.1"/>
+              <line x1="126" y1="355" x2="385" y2="342" stroke="#d03018" stroke-width="0.9"/>
+              <line x1="128" y1="398" x2="375" y2="388" stroke="#d03018" stroke-width="0.8"/>
+              <line x1="132" y1="440" x2="352" y2="432" stroke="#d03018" stroke-width="0.7"/>
+              <line x1="200" y1="132" x2="155" y2="478" stroke="#d03018" stroke-width="0.7"/>
+              <line x1="268" y1="130" x2="225" y2="478" stroke="#d03018" stroke-width="0.6"/>
+              <line x1="336" y1="140" x2="296" y2="476" stroke="#d03018" stroke-width="0.6"/>
+            </g>
+            <!-- BONE — round rib cross-section, inside upper-right of steak -->
+            <circle cx="318" cy="200" r="36" fill="#0e0302" opacity="0.90" filter="url(#boneGlow02)"/>
+            <circle cx="318" cy="200" r="36" fill="none" stroke="#ecddb8" stroke-width="18" opacity="0.85"/>
+            <circle cx="318" cy="200" r="15" fill="#c8a060" opacity="0.80"/>
+            <circle cx="318" cy="200" r="7" fill="#e8ca90" opacity="0.90"/>
+            <text x="240" y="542" font-family="Space Grotesk,sans-serif" font-size="9" fill="#c82010" opacity="0.35" text-anchor="middle" letter-spacing="8">BOUCHERIE ARTISANALE</text>
+            <text x="240" y="566" font-family="Space Grotesk,sans-serif" font-size="7.5" fill="#c82010" opacity="0.18" text-anchor="middle" letter-spacing="4">MAISON ROUFFIANGE · LYON</text>
           </svg>
         </div>
       </div>
