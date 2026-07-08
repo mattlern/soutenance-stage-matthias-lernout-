@@ -99,9 +99,76 @@
     </div>
     <div class="chapter-grid">
       <div class="chapter-media">
-        <div class="media-placeholder" data-placeholder="Site Ranc &amp; Genevois — capture à venir">
-          <span class="ph-label">RANC &amp; GENEVOIS</span>
-          <span class="ph-sub">[ visuel à venir ]</span>
+        <div class="media-placeholder" data-placeholder="Site Ranc &amp; Genevois">
+          <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;display:block" aria-hidden="true">
+            <defs>
+              <radialGradient id="sky01" cx="52%" cy="38%" r="68%">
+                <stop offset="0%" stop-color="#8fa6bd" stop-opacity="0.32"/>
+                <stop offset="55%" stop-color="#3a5870" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#0a0d12" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="winGlow01" x="-200%" y="-200%" width="500%" height="500%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="antGlow01" x="-500%" y="-500%" width="1100%" height="1100%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <linearGradient id="fog01" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8fa6bd" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#8fa6bd" stop-opacity="0.1"/>
+              </linearGradient>
+            </defs>
+            <!-- BG -->
+            <rect width="480" height="600" fill="#090c11"/>
+            <rect width="480" height="600" fill="url(#sky01)"/>
+            <!-- Ghost 01 -->
+            <text x="-10" y="490" font-family="Anton,sans-serif" font-size="340" fill="#8fa6bd" opacity="0.03">01</text>
+            <!-- Horizon mist -->
+            <rect x="0" y="465" width="480" height="135" fill="url(#fog01)"/>
+            <!-- BUILDING SILHOUETTES (bottom anchored at y=500) -->
+            <rect x="22" y="418" width="28" height="82" fill="#080b10"/>
+            <rect x="53" y="374" width="22" height="126" fill="#080b10"/>
+            <rect x="78" y="335" width="36" height="165" fill="#080b10"/>
+            <rect x="118" y="288" width="30" height="212" fill="#080b10"/>
+            <rect x="152" y="242" width="46" height="258" fill="#0a0f18"/>
+            <rect x="204" y="148" width="56" height="352" fill="#0b1020"/>
+            <rect x="265" y="228" width="40" height="272" fill="#0a0f18"/>
+            <rect x="310" y="278" width="26" height="222" fill="#080b10"/>
+            <rect x="340" y="206" width="50" height="294" fill="#0b1020"/>
+            <rect x="395" y="330" width="32" height="170" fill="#080b10"/>
+            <rect x="432" y="392" width="26" height="108" fill="#080b10"/>
+            <!-- Ground line -->
+            <line x1="0" y1="500" x2="480" y2="500" stroke="#8fa6bd" stroke-width="0.7" opacity="0.28"/>
+            <!-- Antenna on tallest building -->
+            <line x1="232" y1="148" x2="232" y2="90" stroke="#8fa6bd" stroke-width="0.9" opacity="0.45"/>
+            <circle cx="232" cy="88" r="4" fill="#c8dde8" opacity="0.9" filter="url(#antGlow01)"/>
+            <!-- GLOWING WINDOWS (all in one filtered group) -->
+            <g filter="url(#winGlow01)">
+              <rect x="213" y="166" width="9" height="11" fill="#c8dde8" opacity="0.65"/>
+              <rect x="228" y="166" width="9" height="11" fill="#c8dde8" opacity="0.4"/>
+              <rect x="244" y="166" width="9" height="11" fill="#c8dde8" opacity="0.7"/>
+              <rect x="213" y="194" width="9" height="11" fill="#c8dde8" opacity="0.3"/>
+              <rect x="244" y="194" width="9" height="11" fill="#c8dde8" opacity="0.55"/>
+              <rect x="213" y="222" width="9" height="11" fill="#c8dde8" opacity="0.6"/>
+              <rect x="228" y="222" width="9" height="11" fill="#c8dde8" opacity="0.35"/>
+              <rect x="228" y="250" width="9" height="11" fill="#c8dde8" opacity="0.5"/>
+              <rect x="244" y="278" width="9" height="11" fill="#c8dde8" opacity="0.45"/>
+              <rect x="213" y="318" width="9" height="11" fill="#c8dde8" opacity="0.3"/>
+              <rect x="160" y="260" width="8" height="10" fill="#b0c8d8" opacity="0.5"/>
+              <rect x="174" y="260" width="8" height="10" fill="#b0c8d8" opacity="0.65"/>
+              <rect x="160" y="285" width="8" height="10" fill="#b0c8d8" opacity="0.35"/>
+              <rect x="174" y="308" width="8" height="10" fill="#b0c8d8" opacity="0.5"/>
+              <rect x="350" y="225" width="8" height="10" fill="#b0c8d8" opacity="0.55"/>
+              <rect x="364" y="225" width="8" height="10" fill="#b0c8d8" opacity="0.4"/>
+              <rect x="378" y="225" width="8" height="10" fill="#b0c8d8" opacity="0.65"/>
+              <rect x="350" y="252" width="8" height="10" fill="#b0c8d8" opacity="0.3"/>
+              <rect x="378" y="278" width="8" height="10" fill="#b0c8d8" opacity="0.5"/>
+            </g>
+            <!-- Caption -->
+            <text x="240" y="572" font-family="Space Grotesk,sans-serif" font-size="7.5" fill="#8fa6bd" opacity="0.18" text-anchor="middle" letter-spacing="4">RANC &amp; GENEVOIS · BTP LYON</text>
+          </svg>
         </div>
       </div>
       <div class="chapter-text">
@@ -156,9 +223,65 @@
         <button class="explore-btn" data-project="ch02">Explorer le projet <span>→</span></button>
       </div>
       <div class="chapter-media">
-        <div class="media-placeholder" data-placeholder="Site Maison Rouffiange — capture à venir">
-          <span class="ph-label">MAISON ROUFFIANGE</span>
-          <span class="ph-sub">[ visuel à venir — livraison 5/6 juillet ]</span>
+        <div class="media-placeholder" data-placeholder="Site Maison Rouffiange">
+          <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;display:block" aria-hidden="true">
+            <defs>
+              <radialGradient id="backlight02" cx="50%" cy="44%" r="58%">
+                <stop offset="0%" stop-color="#c85c3a" stop-opacity="0.55"/>
+                <stop offset="40%" stop-color="#8a2a15" stop-opacity="0.18"/>
+                <stop offset="100%" stop-color="#1a0c08" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="eyeGlow02" x="-300%" y="-300%" width="700%" height="700%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="hornGlow02" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="atmBlur02" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="22"/>
+              </filter>
+            </defs>
+            <rect width="480" height="600" fill="#120604"/>
+            <!-- Ghost 02 -->
+            <text x="10" y="510" font-family="Anton,sans-serif" font-size="320" fill="#c85c3a" opacity="0.04">02</text>
+            <!-- Wide atmospheric backlight (blurred) -->
+            <ellipse cx="240" cy="268" rx="210" ry="188" fill="#c85c3a" opacity="0.28" filter="url(#atmBlur02)"/>
+            <!-- Backlight radial gradient over it -->
+            <ellipse cx="240" cy="268" rx="240" ry="210" fill="url(#backlight02)"/>
+            <!-- BULL HEAD — front-facing, dark silhouette against backlight -->
+            <!-- Main head oval -->
+            <ellipse cx="240" cy="282" rx="132" ry="122" fill="#0f0402" stroke="#c85c3a" stroke-width="1.5" opacity="0.8"/>
+            <!-- Snout / muzzle -->
+            <ellipse cx="240" cy="358" rx="88" ry="54" fill="#0f0402" stroke="#c85c3a" stroke-width="1.1" opacity="0.7"/>
+            <!-- Nostrils -->
+            <ellipse cx="207" cy="370" rx="20" ry="12" fill="#1a0603" stroke="#c85c3a" stroke-width="1.2" opacity="0.68"/>
+            <ellipse cx="273" cy="370" rx="20" ry="12" fill="#1a0603" stroke="#c85c3a" stroke-width="1.2" opacity="0.68"/>
+            <!-- Ring through nose -->
+            <circle cx="240" cy="390" r="16" fill="none" stroke="#c85c3a" stroke-width="1.6" opacity="0.55"/>
+            <!-- Ears -->
+            <ellipse cx="118" cy="255" rx="26" ry="17" fill="#0f0402" stroke="#c85c3a" stroke-width="1.1" opacity="0.62" transform="rotate(-18,118,255)"/>
+            <ellipse cx="362" cy="255" rx="26" ry="17" fill="#0f0402" stroke="#c85c3a" stroke-width="1.1" opacity="0.62" transform="rotate(18,362,255)"/>
+            <!-- Eyes — concentric glowing circles -->
+            <circle cx="178" cy="264" r="24" fill="#0f0402" stroke="#c85c3a" stroke-width="1" opacity="0.62"/>
+            <circle cx="178" cy="264" r="14" fill="#c85c3a" opacity="0.22" filter="url(#eyeGlow02)"/>
+            <circle cx="178" cy="264" r="6" fill="#e07050" opacity="0.7" filter="url(#eyeGlow02)"/>
+            <circle cx="302" cy="264" r="24" fill="#0f0402" stroke="#c85c3a" stroke-width="1" opacity="0.62"/>
+            <circle cx="302" cy="264" r="14" fill="#c85c3a" opacity="0.22" filter="url(#eyeGlow02)"/>
+            <circle cx="302" cy="264" r="6" fill="#e07050" opacity="0.7" filter="url(#eyeGlow02)"/>
+            <!-- HORNS — sweeping curves with glow -->
+            <path d="M 145 235 Q 80 148 112 88" fill="none" stroke="#c85c3a" stroke-width="3.2" stroke-linecap="round" opacity="0.8" filter="url(#hornGlow02)"/>
+            <path d="M 335 235 Q 400 148 368 88" fill="none" stroke="#c85c3a" stroke-width="3.2" stroke-linecap="round" opacity="0.8" filter="url(#hornGlow02)"/>
+            <!-- Horn tips (bright dots) -->
+            <circle cx="112" cy="88" r="5.5" fill="#ff9070" opacity="0.95" filter="url(#eyeGlow02)"/>
+            <circle cx="368" cy="88" r="5.5" fill="#ff9070" opacity="0.95" filter="url(#eyeGlow02)"/>
+            <!-- Forehead subtle ridge -->
+            <path d="M 195 242 Q 240 234 285 242" fill="none" stroke="#c85c3a" stroke-width="1" opacity="0.35"/>
+            <!-- Label -->
+            <text x="240" y="482" font-family="Space Grotesk,sans-serif" font-size="9" fill="#c85c3a" opacity="0.38" text-anchor="middle" letter-spacing="8">BOUCHERIE ARTISANALE</text>
+            <text x="240" y="572" font-family="Space Grotesk,sans-serif" font-size="7.5" fill="#c85c3a" opacity="0.18" text-anchor="middle" letter-spacing="4">MAISON ROUFFIANGE · LYON</text>
+          </svg>
         </div>
       </div>
     </div>
@@ -166,6 +289,39 @@
 
   <!-- CHAPTER 03 — FIFTEEN PARTNERS (dramatic) -->
   <section class="chapter chapter-dark" id="ch03" data-bg="#050506" data-accent="#8a2b2b">
+    <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
+      <svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+        <defs>
+          <filter id="crackWide" x="-400%" y="-50%" width="900%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="45"/>
+          </filter>
+          <filter id="crackMid" x="-200%" y="-50%" width="500%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="14" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="b"/></feMerge>
+          </filter>
+          <filter id="crackSharp" x="-100%" y="-20%" width="300%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Total darkness -->
+        <rect width="1400" height="900" fill="#040102"/>
+        <!-- Wide deep glow behind the crack -->
+        <line x1="700" y1="0" x2="700" y2="900" stroke="#8a2b2b" stroke-width="120" filter="url(#crackWide)" opacity="0.7"/>
+        <!-- Medium glow -->
+        <line x1="700" y1="60" x2="700" y2="840" stroke="#c04040" stroke-width="20" filter="url(#crackMid)" opacity="0.55"/>
+        <!-- The crack itself -->
+        <line x1="700" y1="68" x2="700" y2="832" stroke="#d85050" stroke-width="1.8" filter="url(#crackSharp)" opacity="0.9"/>
+        <!-- Bright center thread -->
+        <line x1="700" y1="68" x2="700" y2="832" stroke="#ff9090" stroke-width="0.6" opacity="0.6"/>
+        <!-- Subtle horizontal distortions -->
+        <line x1="692" y1="285" x2="708" y2="285" stroke="#8a2b2b" stroke-width="0.6" opacity="0.3"/>
+        <line x1="695" y1="470" x2="705" y2="470" stroke="#8a2b2b" stroke-width="0.5" opacity="0.22"/>
+        <line x1="693" y1="625" x2="707" y2="625" stroke="#8a2b2b" stroke-width="0.6" opacity="0.25"/>
+        <!-- Ghost 4000€ -->
+        <text x="700" y="850" font-family="Anton,sans-serif" font-size="90" fill="#8a2b2b" opacity="0.03" text-anchor="middle" letter-spacing="-3">4 000 €</text>
+      </svg>
+    </div>
     <div class="chapter-num-wrap">
       <span class="chapter-num glitch" data-text="03">03</span>
     </div>
@@ -198,9 +354,67 @@
     </div>
     <div class="chapter-grid">
       <div class="chapter-media">
-        <div class="media-placeholder" data-placeholder="Reels Sacré-Alphonse — extrait à venir">
-          <span class="ph-label">SACRÉ-ALPHONSE</span>
-          <span class="ph-sub">[ extrait Reels à venir ]</span>
+        <div class="media-placeholder" data-placeholder="Reels Sacré-Alphonse">
+          <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;display:block" aria-hidden="true">
+            <defs>
+              <radialGradient id="sunAtm04" cx="50%" cy="43%" r="68%">
+                <stop offset="0%" stop-color="#e0a530" stop-opacity="0.38"/>
+                <stop offset="50%" stop-color="#9a6800" stop-opacity="0.12"/>
+                <stop offset="100%" stop-color="#16110a" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="sunCore04" cx="50%" cy="43%" r="12%">
+                <stop offset="0%" stop-color="#fff2c8" stop-opacity="1"/>
+                <stop offset="100%" stop-color="#e0a530" stop-opacity="0.3"/>
+              </radialGradient>
+              <filter id="rayGlow04" x="-200%" y="-200%" width="500%" height="500%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="coreGlow04" x="-300%" y="-300%" width="700%" height="700%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="16" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <rect width="480" height="600" fill="#14100a"/>
+            <rect width="480" height="600" fill="url(#sunAtm04)"/>
+            <!-- Ghost 04 -->
+            <text x="10" y="500" font-family="Anton,sans-serif" font-size="300" fill="#e0a530" opacity="0.035">04</text>
+            <!-- STARBURST RAYS — 20 rays from center 240,255 -->
+            <g filter="url(#rayGlow04)">
+              <line x1="240" y1="255" x2="240" y2="40" stroke="#e0a530" stroke-width="1.6" opacity="0.75"/>
+              <line x1="240" y1="255" x2="370" y2="75" stroke="#e0a530" stroke-width="1.3" opacity="0.65"/>
+              <line x1="240" y1="255" x2="460" y2="148" stroke="#e0a530" stroke-width="1.1" opacity="0.55"/>
+              <line x1="240" y1="255" x2="474" y2="255" stroke="#e0a530" stroke-width="1.3" opacity="0.65"/>
+              <line x1="240" y1="255" x2="460" y2="362" stroke="#e0a530" stroke-width="1.1" opacity="0.55"/>
+              <line x1="240" y1="255" x2="370" y2="435" stroke="#e0a530" stroke-width="1.3" opacity="0.65"/>
+              <line x1="240" y1="255" x2="240" y2="470" stroke="#e0a530" stroke-width="1.6" opacity="0.75"/>
+              <line x1="240" y1="255" x2="110" y2="435" stroke="#e0a530" stroke-width="1.3" opacity="0.65"/>
+              <line x1="240" y1="255" x2="20" y2="362" stroke="#e0a530" stroke-width="1.1" opacity="0.55"/>
+              <line x1="240" y1="255" x2="6" y2="255" stroke="#e0a530" stroke-width="1.3" opacity="0.65"/>
+              <line x1="240" y1="255" x2="20" y2="148" stroke="#e0a530" stroke-width="1.1" opacity="0.55"/>
+              <line x1="240" y1="255" x2="110" y2="75" stroke="#e0a530" stroke-width="1.3" opacity="0.65"/>
+              <!-- Sub-rays -->
+              <line x1="240" y1="255" x2="308" y2="48" stroke="#e0a530" stroke-width="0.9" opacity="0.4"/>
+              <line x1="240" y1="255" x2="428" y2="100" stroke="#e0a530" stroke-width="0.9" opacity="0.4"/>
+              <line x1="240" y1="255" x2="428" y2="410" stroke="#e0a530" stroke-width="0.9" opacity="0.4"/>
+              <line x1="240" y1="255" x2="308" y2="462" stroke="#e0a530" stroke-width="0.9" opacity="0.4"/>
+              <line x1="240" y1="255" x2="172" y2="462" stroke="#e0a530" stroke-width="0.9" opacity="0.4"/>
+              <line x1="240" y1="255" x2="52" y2="410" stroke="#e0a530" stroke-width="0.9" opacity="0.4"/>
+              <line x1="240" y1="255" x2="52" y2="100" stroke="#e0a530" stroke-width="0.9" opacity="0.4"/>
+              <line x1="240" y1="255" x2="172" y2="48" stroke="#e0a530" stroke-width="0.9" opacity="0.4"/>
+            </g>
+            <!-- Concentric rings -->
+            <circle cx="240" cy="255" r="55" fill="none" stroke="#e0a530" stroke-width="0.6" opacity="0.28"/>
+            <circle cx="240" cy="255" r="105" fill="none" stroke="#e0a530" stroke-width="0.4" opacity="0.18"/>
+            <circle cx="240" cy="255" r="165" fill="none" stroke="#e0a530" stroke-width="0.3" opacity="0.12"/>
+            <!-- Bright core -->
+            <circle cx="240" cy="255" r="30" fill="url(#sunCore04)" filter="url(#coreGlow04)"/>
+            <circle cx="240" cy="255" r="10" fill="#fff8e0" opacity="0.95"/>
+            <!-- 500K label -->
+            <text x="240" y="536" font-family="Anton,sans-serif" font-size="72" fill="#e0a530" opacity="0.72" text-anchor="middle" letter-spacing="-2">500K</text>
+            <text x="240" y="558" font-family="Space Grotesk,sans-serif" font-size="9" fill="#e0a530" opacity="0.35" text-anchor="middle" letter-spacing="5">VUES ORGANIQUES</text>
+            <text x="240" y="576" font-family="Space Grotesk,sans-serif" font-size="7.5" fill="#e0a530" opacity="0.18" text-anchor="middle" letter-spacing="4">SACRÉ-ALPHONSE · COMMUNITY MANAGEMENT</text>
+          </svg>
         </div>
       </div>
       <div class="chapter-text">
@@ -247,9 +461,67 @@
         <button class="explore-btn" data-project="ch05">Explorer le projet <span>→</span></button>
       </div>
       <div class="chapter-media">
-        <div class="media-placeholder" data-placeholder="Vidéos DJs — extrait à venir">
-          <span class="ph-label">DJS LYONNAIS</span>
-          <span class="ph-sub">[ extrait vidéo à venir ]</span>
+        <div class="media-placeholder" data-placeholder="Vidéos DJs Lyonnais">
+          <svg viewBox="0 0 480 600" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;display:block" aria-hidden="true">
+            <defs>
+              <radialGradient id="atmPurple05" cx="50%" cy="50%" r="70%">
+                <stop offset="0%" stop-color="#a06be0" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#0d0818" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="waveGlow05" x="-30%" y="-300%" width="160%" height="700%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b1"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b2"/>
+                <feGaussianBlur in="SourceGraphic" stdDeviation="22" result="b3"/>
+                <feMerge>
+                  <feMergeNode in="b3"/>
+                  <feMergeNode in="b2"/>
+                  <feMergeNode in="b1"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <filter id="phosphor05" x="-10%" y="-100%" width="120%" height="300%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="b"/>
+                <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <!-- Background -->
+            <rect width="480" height="600" fill="#0d0818"/>
+            <rect width="480" height="600" fill="url(#atmPurple05)"/>
+            <!-- Ghost 05 -->
+            <text x="0" y="500" font-family="Anton,sans-serif" font-size="300" fill="#a06be0" opacity="0.035">05</text>
+            <!-- CRT screen border suggestion -->
+            <rect x="28" y="110" width="424" height="358" rx="6" fill="none" stroke="#a06be0" stroke-width="0.5" opacity="0.14"/>
+            <!-- CRT grid — horizontal -->
+            <line x1="28" y1="199" x2="452" y2="199" stroke="#a06be0" stroke-width="0.4" opacity="0.07"/>
+            <line x1="28" y1="245" x2="452" y2="245" stroke="#a06be0" stroke-width="0.3" opacity="0.05"/>
+            <line x1="28" y1="289" x2="452" y2="289" stroke="#a06be0" stroke-width="0.7" opacity="0.15"/>
+            <line x1="28" y1="333" x2="452" y2="333" stroke="#a06be0" stroke-width="0.3" opacity="0.05"/>
+            <line x1="28" y1="379" x2="452" y2="379" stroke="#a06be0" stroke-width="0.4" opacity="0.07"/>
+            <!-- CRT grid — vertical -->
+            <line x1="92" y1="110" x2="92" y2="468" stroke="#a06be0" stroke-width="0.4" opacity="0.06"/>
+            <line x1="156" y1="110" x2="156" y2="468" stroke="#a06be0" stroke-width="0.4" opacity="0.06"/>
+            <line x1="240" y1="110" x2="240" y2="468" stroke="#a06be0" stroke-width="0.6" opacity="0.10"/>
+            <line x1="324" y1="110" x2="324" y2="468" stroke="#a06be0" stroke-width="0.4" opacity="0.06"/>
+            <line x1="388" y1="110" x2="388" y2="468" stroke="#a06be0" stroke-width="0.4" opacity="0.06"/>
+            <!-- Wave 3 — low freq arch (sub bass), dim blue-purple -->
+            <path d="M 28,440 C 113,440 183,138 240,138 C 297,138 367,440 452,440"
+                  fill="none" stroke="#5840a8" stroke-width="1.6" opacity="0.55" filter="url(#phosphor05)"/>
+            <!-- Wave 2 — high freq (3 cycles), medium purple -->
+            <path d="M 28,289 C 58,334 80,334 110,289 C 140,244 162,244 192,289 C 222,334 244,334 274,289 C 304,244 326,244 356,289 C 386,334 408,334 438,289 C 452,267 452,267 452,289"
+                  fill="none" stroke="#b888f0" stroke-width="1.2" opacity="0.58" filter="url(#phosphor05)"/>
+            <!-- Wave 1 — main sine (1.5 cycles), bright white-purple with full glow -->
+            <path d="M 28,289 C 87,184 103,184 162,289 C 221,394 237,394 296,289 C 355,184 371,184 430,289 C 445,316 452,322 452,289"
+                  fill="none" stroke="#ddb8ff" stroke-width="2.4" opacity="0.88" filter="url(#waveGlow05)"/>
+            <!-- Scope labels -->
+            <text x="36" y="130" font-family="Space Grotesk,sans-serif" font-size="7" fill="#a06be0" opacity="0.28" letter-spacing="2">44.1 kHz</text>
+            <text x="428" y="130" font-family="Space Grotesk,sans-serif" font-size="7" fill="#a06be0" opacity="0.18" text-anchor="end" letter-spacing="1">CH.1</text>
+            <!-- Amplitude marker -->
+            <line x1="28" y1="138" x2="38" y2="138" stroke="#a06be0" stroke-width="0.6" opacity="0.22"/>
+            <line x1="28" y1="440" x2="38" y2="440" stroke="#a06be0" stroke-width="0.6" opacity="0.22"/>
+            <!-- Glowing scan dot at wave front -->
+            <circle cx="452" cy="289" r="5" fill="#ddb8ff" opacity="0.7" filter="url(#waveGlow05)"/>
+            <text x="240" y="508" font-family="Space Grotesk,sans-serif" font-size="7.5" fill="#a06be0" opacity="0.18" text-anchor="middle" letter-spacing="3">DJS LYONNAIS · SCÈNE ÉLECTRONIQUE</text>
+          </svg>
         </div>
       </div>
     </div>
